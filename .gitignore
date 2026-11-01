@@ -1,0 +1,17 @@
+# Lični podaci (baza, mejl, App Password)
+includes/config.php
+
+# Composer zavisnosti (instaliraju se sa: composer install)
+vendor/
+
+# Fajlovi koje korisnici upload-uju
+uploads/*
+!uploads/.gitkeep
+
+# Sistemski fajlovi
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.log
