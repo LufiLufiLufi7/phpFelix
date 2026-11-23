@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/auth.php';
 require_once __DIR__ . '/../includes/db.php';
+require_once __DIR__ . '/../includes/project_images.php';
 
 $success = '';
 $errors = [];
@@ -13,8 +14,8 @@ if (isset($_GET['delete'])) {
         $stmt = $db->prepare("SELECT image FROM projects WHERE id = ?");
         $stmt->execute([$id]);
         $project = $stmt->fetch();
-        if ($project && $project['image'] && file_exists(__DIR__ . '/../uploads/' . $project['image'])) {
-            unlink(__DIR__ . '/../uploads/' . $project['image']);
+        if ($project && $project['image'] && !preg_match('~^https?://~', $project['image']) && file_exists(__DIR__ . '/../uploads/' . basename($project['image']))) {
+            unlink(__DIR__ . '/../uploads/' . basename($project['image']));
         }
         $stmt = $db->prepare("DELETE FROM projects WHERE id = ?");
         $stmt->execute([$id]);
@@ -37,16 +38,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($category)) $errors[] = 'Category is required';
     if (empty($location)) $errors[] = 'Location is required';
 
-    // Upload slike
+    // Store new project photos permanently on Cloudinary.
     $imageName = $_POST['existing_image'] ?? '';
-    if (!empty($_FILES['image']['name'])) {
-        $allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/avif'];
-        if (!in_array($_FILES['image']['type'], $allowedTypes)) {
-            $errors[] = 'Only JPG, PNG, WEBP and AVIF images are allowed';
-        } else {
-            $ext = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-            $imageName = uniqid() . '.' . $ext;
-            move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../uploads/' . $imageName);
+    if (isset($_FILES['image']) && $_FILES['image']['error'] !== UPLOAD_ERR_NO_FILE) {
+        try {
+            $imageName = uploadProjectImageToCloudinary($_FILES['image']);
+        } catch (RuntimeException $e) {
+            $errors[] = $e->getMessage();
         }
     }
 
@@ -199,7 +197,7 @@ if (isset($_GET['edit'])) {
                                 <label class="form-label text-dark">Image</label>
                                 <input type="file" name="image" class="form-control" accept="image/*">
                                 <?php if ($editProject && $editProject['image']): ?>
-                                    <img src="/uploads/<?php echo $editProject['image']; ?>"
+                                    <img src="<?php echo htmlspecialchars(projectImageUrl($editProject['image']), ENT_QUOTES, 'UTF-8'); ?>"
                                         class="mt-2 img-thumbnail" style="max-height:80px">
                                 <?php endif; ?>
                             </div>
@@ -243,7 +241,7 @@ if (isset($_GET['edit'])) {
                             <?php foreach ($projects as $project): ?>
                                 <tr>
                                     <td>
-                                        <img src="/uploads/<?php echo $project['image']; ?>"
+                                        <img src="<?php echo htmlspecialchars(projectImageUrl($project['image']), ENT_QUOTES, 'UTF-8'); ?>"
                                             class="img-thumbnail" style="max-height:50px"
                                             onerror="this.src='/images/indexslika1.jpg'">
                                     </td>
