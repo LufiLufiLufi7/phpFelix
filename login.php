@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['user_name'] = $user['name'];
                 $_SESSION['user_role'] = $user['role'];
 
-                header("Location: /WEB_SAJTOVI_PHP/felix_php/index.php");
+                header("Location: /index.php");
                 exit();
             }
         } else {
@@ -61,7 +61,7 @@ require_once 'includes/header.php';
                     </div>
                     <button type="submit" class="btn-custom btn-yellow w-100">Login</button>
                 </form>
-                <p class="text-center mt-3">Don't have an account? <a href="/WEB_SAJTOVI_PHP/felix_php/register.php">Register</a></p>
+                <p class="text-center mt-3">Don't have an account? <a href="/register.php">Register</a></p>
             </div>
         </div>
     </div>
