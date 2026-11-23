@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['poll_id'], $_POST['op
 
 <section class="container-fluid py-5 bg-white">
     <div class="container">
-        <div class="mx-auto" style="max-width: 700px;">
+        <div class="w-100">
             <div class="text-center mb-4">
                 <h2 class="crna-slova fw-bold mb-2">Polls</h2>
                 <p class="text-secondary mb-0">Share your opinion and explore the results.</p>
@@ -58,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['poll_id'], $_POST['op
         <?php if (empty($polls)): ?>
             <p class="text-center crna-slova">No active polls at the moment.</p>
         <?php else: ?>
+            <div class="row g-4 align-items-stretch">
             <?php foreach ($polls as $poll): ?>
                 <?php
                 // Učitaj opcije sa brojem glasova
@@ -81,7 +82,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['poll_id'], $_POST['op
                 }
                 ?>
 
-                <div class="card mb-4 mx-auto shadow-sm border-0 overflow-hidden" style="max-width: 700px; border-radius: 12px;">
+                <div class="col-12 col-lg-6 col-xl-4 d-flex">
+                <div class="card w-100 h-100 shadow-sm border-0 overflow-hidden" style="border-radius: 12px;">
                     <div class="card-header bg-dark text-white py-3 px-4">
                         <h5 class="mb-0"><?php echo htmlspecialchars($poll['question']); ?></h5>
                     </div>
@@ -131,7 +133,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['poll_id'], $_POST['op
                         <?php endif; ?>
                     </div>
                 </div>
+                </div>
             <?php endforeach; ?>
+            </div>
         <?php endif; ?>
         </div>
     </div>
