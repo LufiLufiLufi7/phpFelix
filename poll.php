@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['poll_id'], $_POST['op
                     <div class="card-body">
                         <?php if (!isset($_SESSION['user_id'])): ?>
                             <div class="alert alert-warning">
-                                Please <a href="/WEB_SAJTOVI_PHP/felix_php/login.php">login</a> to vote.
+                                Please <a href="/login.php">login</a> to vote.
                             </div>
                         <?php endif; ?>
 
