@@ -15,13 +15,60 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
-<nav class="navbar navbar-dark bg-dark">
-    <div class="container">
-        <a href="/admin/index.php" class="navbar-brand"><i class="fas fa-tools"></i> Felix Admin Panel</a>
-        <a href="/admin/index.php" class="btn btn-outline-light btn-sm">Back to Dashboard</a>
+<nav class="navbar navbar-dark bg-dark px-4">
+    <a class="navbar-brand" href="/admin/index.php">
+        <i class="fas fa-tools"></i> Felix Admin
+    </a>
+    <div class="d-flex gap-3">
+        <a href="/index.php" class="btn btn-outline-light btn-sm">
+            <i class="fas fa-home"></i> View Site
+        </a>
+        <a href="/logout.php" class="btn btn-danger btn-sm">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
     </div>
 </nav>
-<main class="container py-5">
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-md-2 bg-dark min-vh-100 p-3">
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2">
+                    <a href="/admin/index.php" class="nav-link text-white">
+                        <i class="fas fa-dashboard"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="/admin/projects.php" class="nav-link text-white">
+                        <i class="fas fa-building"></i> Projects
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="/admin/navigation.php" class="nav-link text-white">
+                        <i class="fas fa-bars"></i> Navigation
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="/admin/messages.php" class="nav-link text-white">
+                        <i class="fas fa-envelope"></i> Messages
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="/admin/polls.php" class="nav-link text-white">
+                        <i class="fas fa-poll"></i> Polls
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="/admin/users.php" class="nav-link text-warning">
+                        <i class="fas fa-users"></i> Users
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main content -->
+        <main class="col-md-10 p-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="h2 mb-0"><i class="fas fa-users me-2"></i>Manage Users</h1>
         <span class="badge bg-secondary"><?php echo count($users); ?> users</span>
@@ -50,5 +97,8 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <p class="text-muted mt-3 small">User details are read-only. Passwords are never displayed.</p>
 </main>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
