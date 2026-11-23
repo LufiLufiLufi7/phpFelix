@@ -4,8 +4,8 @@ require_once __DIR__ . '/../includes/db.php';
 
 // Statistika za dashboard
 $totalProjects = $db->query("SELECT COUNT(*) FROM projects")->fetchColumn();
-$totalMessages = $db->query("SELECT COUNT(*) FROM contact_messages")->fetchColumn();
-$totalUsers = $db->query("SELECT COUNT(*) FROM users")->fetchColumn();
+$totalMessages = $isDemoAdmin ? 1 : $db->query("SELECT COUNT(*) FROM contact_messages")->fetchColumn();
+$totalUsers = $isDemoAdmin ? 2 : $db->query("SELECT COUNT(*) FROM users")->fetchColumn();
 $totalPolls = $db->query("SELECT COUNT(*) FROM polls")->fetchColumn();
 ?>
 
@@ -81,6 +81,7 @@ $totalPolls = $db->query("SELECT COUNT(*) FROM polls")->fetchColumn();
 
         <!-- Main content -->
         <main class="col-md-10 p-4">
+<?php if ($isDemoAdmin): ?><div class="alert alert-warning">Admin Assistant — read-only portfolio demo. User and message data are fictional.</div><?php endif; ?>
             <h2 class="mb-4">Dashboard</h2>
 
             <div class="row g-4">
