@@ -11,6 +11,7 @@ try {
         [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::MYSQL_ATTR_SSL_CA => '/etc/ssl/certs/ca-certificates.crt',
             PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true
         ]
     );
@@ -20,4 +21,3 @@ try {
     http_response_code(500);
     die("Greška pri povezivanju sa bazom.");
 }
-?>
