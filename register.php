@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     <button type="submit" class="btn-custom btn-yellow w-100">Register</button>
                 </form>
-                <p class="text-center mt-3">Already have an account? <a href="/WEB_SAJTOVI_PHP/felix_php/login.php">Login</a></p>
+                <p class="text-center mt-3">Already have an account? <a href="/login.php">Login</a></p>
             </div>
         </div>
     </div>
