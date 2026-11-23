@@ -15,7 +15,7 @@ require_once 'includes/header.php';
                 </p>
                 <p class="profile-text">
                     U slobodno vreme volim da igram šah, planinarim, kodiram i provodim vreme na mestima bez
-                    interneta, gde pronalazim inspiraciju i balans. Trenutno sam zaposlena kao Web publisher.
+                    interneta, gde pronalazim inspiraciju i balans.
                 </p>
                
             </div>
