@@ -2,8 +2,15 @@
 require_once __DIR__ . '/includes/auth.php';
 require_once __DIR__ . '/../includes/db.php';
 
-$stmt = $db->query("SELECT id, name, email, role, active, created_at FROM users ORDER BY id ASC");
-$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+if ($isDemoAdmin) {
+    $users = [
+        ['id'=>1,'name'=>'Demo Administrator','email'=>'admin@example.com','role'=>'admin','active'=>1,'created_at'=>'2026-01-01'],
+        ['id'=>2,'name'=>'Demo Customer','email'=>'customer@example.com','role'=>'user','active'=>1,'created_at'=>'2026-01-02']
+    ];
+} else {
+    $stmt = $db->query("SELECT id, name, email, role, active, created_at FROM users ORDER BY id ASC");
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,6 +76,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <!-- Main content -->
         <main class="col-md-10 p-4">
+<?php if ($isDemoAdmin): ?><div class="alert alert-warning">Admin Assistant — read-only portfolio demo. User and message data are fictional.</div><?php endif; ?>
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="h2 mb-0"><i class="fas fa-users me-2"></i>Manage Users</h1>
         <span class="badge bg-secondary"><?php echo count($users); ?> users</span>
