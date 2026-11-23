@@ -20,7 +20,7 @@ require_once 'includes/header.php';
                
             </div>
             <div class="col-12 col-md-6 text-center">
-                <img src="/WEB_SAJTOVI_PHP/felix_php/images/1752173758317967.jpg" 
+                <img src="/images/1752173758317967.jpg" 
                     class="profile-image" alt="Milena Zujović">
             </div>
         </div>
