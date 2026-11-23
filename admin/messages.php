@@ -123,6 +123,7 @@ $messages = $db->query("SELECT * FROM contact_messages ORDER BY created_at DESC"
                                         <td class="text-dark"><?php echo htmlspecialchars(substr($msg['message'], 0, 50)) . '...'; ?></td>
                                         <td class="text-dark"><?php echo date('d.m.Y H:i', strtotime($msg['created_at'])); ?></td>
                                         <td>
+                                            <button type="button" class="btn btn-warning btn-sm me-1" data-bs-toggle="collapse" data-bs-target="#fullMessage<?php echo (int)$msg['id']; ?>" aria-expanded="false" aria-controls="fullMessage<?php echo (int)$msg['id']; ?>" title="Show or hide full message" aria-label="Show or hide full message"><i class="fas fa-eye"></i></button>
                                             <a href="?delete=<?php echo $msg['id']; ?>"
                                                 class="btn btn-danger btn-sm"
                                                 onclick="return confirm('Delete this message?')">
@@ -130,6 +131,7 @@ $messages = $db->query("SELECT * FROM contact_messages ORDER BY created_at DESC"
                                             </a>
                                         </td>
                                     </tr>
+                                    <tr><td colspan="8" class="p-0 border-0"><div class="collapse" id="fullMessage<?php echo (int)$msg['id']; ?>"><div class="p-3 bg-white border-bottom text-dark"><strong>Full message:</strong><div class="mt-2" style="white-space: pre-wrap; overflow-wrap: anywhere;"><?php echo htmlspecialchars($msg['message'], ENT_QUOTES, 'UTF-8'); ?></div></div></div></td></tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
