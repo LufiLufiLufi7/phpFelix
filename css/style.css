@@ -1041,7 +1041,7 @@ input[type="date"].forma-input::-webkit-calendar-picker-indicator:hover {
 /* ========== BELA SLOVA U FORMI SUBMIT ========== */
 
 button[type="submit"].btn-yellow {
-    color: white !important;
+    /*color: white !important;*/
 }
 
 /* ==========  ========== */
