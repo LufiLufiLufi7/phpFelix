@@ -1051,3 +1051,17 @@ button[type="submit"].btn-yellow {
     gap: unset !important;
 }
 
+
+
+/* Gallery category dropdown: readable options on light native menus */
+.gallery-section select[name="category"],
+.gallery-section select[name="category"] option {
+  color: #212529 !important;
+  background-color: #fff !important;
+}
+.gallery-section select[name="category"]:focus {
+  color: #212529 !important;
+  background-color: #fff !important;
+  border-color: #e3c20c;
+  box-shadow: 0 0 0 .2rem rgba(243, 210, 21, .2);
+}
