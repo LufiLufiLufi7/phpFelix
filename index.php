@@ -29,7 +29,7 @@ require_once 'includes/header.php';
                         </div>
 
                         <div class="col-12 col-lg-6 text-center">
-                            <img src="/WEB_SAJTOVI_PHP/felix_php/images/ai-generated-9304089_1920-removebg-preview.png" alt="About Us" class="img-fluid">
+                            <img src="/images/ai-generated-9304089_1920-removebg-preview.png" alt="About Us" class="img-fluid">
                         </div>
                     </div>
                 </div>
