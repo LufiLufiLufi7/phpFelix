@@ -18,9 +18,9 @@ $navLinks = $stmt->fetchAll();
     <meta name="author" content="Felic Constructions">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.felicconstructions.com/">
-    <link rel="icon" href="/WEB_SAJTOVI_PHP/felix_php/images/image-removebg-preview.png" type="image/png">
-    <link rel='stylesheet' type='text/css' href='/WEB_SAJTOVI_PHP/felix_php/css/style.css'>
-    <link rel='stylesheet' type='text/css' href='/WEB_SAJTOVI_PHP/felix_php/css/responsive.css'>
+    <link rel="icon" href="/images/image-removebg-preview.png" type="image/png">
+    <link rel='stylesheet' type='text/css' href='/css/style.css'>
+    <link rel='stylesheet' type='text/css' href='/css/responsive.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/css/intlTelInput.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
@@ -31,14 +31,14 @@ $navLinks = $stmt->fetchAll();
 <body>
     <section id="headerrr" class="video-bg">
         <video autoplay muted loop class="video-bg__content">
-            <source src="/WEB_SAJTOVI_PHP/felix_php/video/12956438-uhd_2560_1440_30fps.mp4" type="video/mp4">
+            <source src="/video/12956438-uhd_2560_1440_30fps.mp4" type="video/mp4">
         </video>
 
         <header class="container-fluid navbar-light mutna-pozadina p-3">
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
-                    <a href="/WEB_SAJTOVI_PHP/felix_php/index.php" class="navbar-brand text-white box-shadow">
-                        <img src="/WEB_SAJTOVI_PHP/felix_php/images/image-removebg-preview.png" alt="Logo" width="130">
+                    <a href="/index.php" class="navbar-brand text-white box-shadow">
+                        <img src="/images/image-removebg-preview.png" alt="Logo" width="130">
                     </a>
                     <button type="button" data-bs-toggle="collapse" data-bs-target="#nekiokvir" class="navbar-toggler">
                         <span class="navbar-toggler-icon"></span>
@@ -55,18 +55,18 @@ $navLinks = $stmt->fetchAll();
                             <?php if (isset($_SESSION['user_id'])): ?>
                                 <?php if ($_SESSION['user_role'] === 'admin'): ?>
                                     <li class="nav-item beliOkvir">
-                                        <a href="/WEB_SAJTOVI_PHP/felix_php/admin/index.php" class="nav-link text-white">Admin</a>
+                                        <a href="/admin/index.php" class="nav-link text-white">Admin</a>
                                     </li>
                                 <?php endif; ?>
                                 <li class="nav-item beliOkvir">
-                                    <a href="/WEB_SAJTOVI_PHP/felix_php/logout.php" class="nav-link text-white">Logout</a>
+                                    <a href="/logout.php" class="nav-link text-white">Logout</a>
                                 </li>
                             <?php else: ?>
                                 <li class="nav-item beliOkvir">
-                                    <a href="/WEB_SAJTOVI_PHP/felix_php/login.php" class="nav-link text-white">Login</a>
+                                    <a href="/login.php" class="nav-link text-white">Login</a>
                                 </li>
                                 <li class="nav-item beliOkvir">
-                                    <a href="/WEB_SAJTOVI_PHP/felix_php/register.php" class="nav-link text-white">Register</a>
+                                    <a href="/register.php" class="nav-link text-white">Register</a>
                                 </li>
                             <?php endif; ?>
                         </ul>
@@ -82,8 +82,8 @@ $navLinks = $stmt->fetchAll();
                         <h1 class="mb-3">Building a Concrete Future</h1>
                         <p class="mb-4">Honest, Reliable Builders since 1968</p>
                         <div class="d-flex flex-column flex-sm-row gap-3">
-                            <a href="/WEB_SAJTOVI_PHP/felix_php/gallery.php" class="btn-custom btn-outline">View Projects</a>
-                            <a href="/WEB_SAJTOVI_PHP/felix_php/contact.php" class="btn-custom btn-yellow">Contact Us</a>
+                            <a href="/gallery.php" class="btn-custom btn-outline">View Projects</a>
+                            <a href="/contact.php" class="btn-custom btn-yellow">Contact Us</a>
                         </div>
                     </div>
                 </div>
