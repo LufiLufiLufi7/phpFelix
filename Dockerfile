@@ -1,24 +1,17 @@
-
 FROM php:8.2-apache
 
-# Instalacija PHP ekstenzija
-RUN docker-php-ext-install pdo_mysql mysqli
+RUN docker-php-ext-install pdo_mysql mysqli \
+    && a2enmod rewrite
 
-# Omogucavanje Apache rewrite modula
-RUN a2enmod rewrite
-
-# Instalacija Composer-a
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-
-# Kopiranje projekta
 COPY . /var/www/html/
-
 WORKDIR /var/www/html
 
-# Instalacija PHP biblioteka
-RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader \
+    && chown -R www-data:www-data /var/www/html
 
-# Dozvole za Apache
-RUN chown -R www-data:www-data /var/www/html
+# Generate ignored config.php at runtime from Render environment variables.
+# Shell invocation avoids requiring an executable bit in the GitHub-created script.
+CMD ["sh", "/var/www/html/docker-entrypoint.sh"]
 
 EXPOSE 80
