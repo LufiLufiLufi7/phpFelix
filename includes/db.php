@@ -1,4 +1,3 @@
-
 <?php
 // Konekcija na MySQL bazu
 require_once __DIR__ . '/config.php';
