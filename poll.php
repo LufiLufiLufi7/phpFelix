@@ -37,7 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['poll_id'], $_POST['op
 
 <section class="container-fluid py-5 bg-white">
     <div class="container">
-        <h2 class="text-center mb-5 crna-slova">Polls</h2>
+        <div class="mx-auto" style="max-width: 700px;">
+            <div class="text-center mb-4">
+                <h2 class="crna-slova fw-bold mb-2">Polls</h2>
+                <p class="text-secondary mb-0">Share your opinion and explore the results.</p>
+            </div>
 
         <?php if (!empty($errors)): ?>
             <div class="alert alert-danger">
@@ -77,11 +81,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['poll_id'], $_POST['op
                 }
                 ?>
 
-                <div class="card mb-4 mx-auto" style="max-width: 700px;">
-                    <div class="card-header bg-dark text-white">
+                <div class="card mb-4 mx-auto shadow-sm border-0 overflow-hidden" style="max-width: 700px; border-radius: 12px;">
+                    <div class="card-header bg-dark text-white py-3 px-4">
                         <h5 class="mb-0"><?php echo htmlspecialchars($poll['question']); ?></h5>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body p-4">
                         <?php if (!isset($_SESSION['user_id'])): ?>
                             <div class="alert alert-warning">
                                 Please <a href="/login.php">login</a> to vote.
@@ -129,6 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['poll_id'], $_POST['op
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
+        </div>
     </div>
 </section>
 
