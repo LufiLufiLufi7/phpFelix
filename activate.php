@@ -33,7 +33,7 @@ if (isset($_GET['token']) && !empty($_GET['token'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Activation - Felix Construction</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel='stylesheet' type='text/css' href='/WEB_SAJTOVI_PHP/felix_php/css/style.css'>
+    <link rel='stylesheet' type='text/css' href='/css/style.css'>
 </head>
 <body class="bg-light">
     <div class="container py-5">
@@ -42,12 +42,12 @@ if (isset($_GET['token']) && !empty($_GET['token'])) {
                 <div class="alert alert-success">
                     <i class="fas fa-check-circle fa-3x mb-3"></i>
                     <h4><?php echo $message; ?></h4>
-                    <a href="/WEB_SAJTOVI_PHP/felix_php/login.php" class="btn-custom btn-yellow mt-3">Login Now</a>
+                    <a href="/login.php" class="btn-custom btn-yellow mt-3">Login Now</a>
                 </div>
             <?php else: ?>
                 <div class="alert alert-danger">
                     <h4><?php echo $message; ?></h4>
-                    <a href="/WEB_SAJTOVI_PHP/felix_php/index.php" class="btn-custom btn-yellow mt-3">Go Home</a>
+                    <a href="/index.php" class="btn-custom btn-yellow mt-3">Go Home</a>
                 </div>
             <?php endif; ?>
         </div>
