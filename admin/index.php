@@ -62,6 +62,11 @@ $totalPolls = $db->query("SELECT COUNT(*) FROM polls")->fetchColumn();
                     </a>
                 </li>
                 <li class="nav-item mb-2">
+                    <a href="/admin/users.php" class="nav-link text-white">
+                        <i class="fas fa-users"></i> Users
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
                     <a href="/admin/polls.php" class="nav-link text-white">
                         <i class="fas fa-poll"></i> Polls
                     </a>
@@ -102,6 +107,7 @@ $totalPolls = $db->query("SELECT COUNT(*) FROM polls")->fetchColumn();
                         <div class="card-body">
                             <h5 class="card-title"><i class="fas fa-users"></i> Users</h5>
                             <h2><?php echo $totalUsers; ?></h2>
+                            <a href="/admin/users.php" class="text-white">View Users →</a>
                         </div>
                     </div>
                 </div>
