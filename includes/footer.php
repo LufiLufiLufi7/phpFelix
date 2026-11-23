@@ -10,8 +10,8 @@
                 <div class="row py-4">
                     <!-- IZMENA: onclick zamenjen sa href, putanja apsolutna -->
                     <div class="col-12 col-md-6 col-lg-2 mb-3 mb-lg-0">
-                        <a href="/WEB_SAJTOVI_PHP/felix_php/index.php" class="text-white">
-                            <img src="/WEB_SAJTOVI_PHP/felix_php/images/image-removebg-preview.png" alt="Logo" width="200">
+                        <a href="/index.php" class="text-white">
+                            <img src="/images/image-removebg-preview.png" alt="Logo" width="200">
                         </a>
                     </div>
 
@@ -51,7 +51,7 @@
 
                     <!-- IZMENA: onclick zamenjen sa href -->
                     <div class="col-12 col-lg-2 text-center text-lg-start">
-                        <a href="/WEB_SAJTOVI_PHP/felix_php/contact.php" class="btn-custom btn-yellow w-100">Contact Us</a>
+                        <a href="/contact.php" class="btn-custom btn-yellow w-100">Contact Us</a>
                     </div>
                 </div>
             </div>
@@ -68,8 +68,8 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-<script src="/WEB_SAJTOVI_PHP/felix_php/js/counter.js"></script>
-<script src="/WEB_SAJTOVI_PHP/felix_php/js/contact-form.js"></script>
+<script src="/js/counter.js"></script>
+<script src="/js/contact-form.js"></script>
 
 </body>
 </html>
