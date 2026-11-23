@@ -89,10 +89,10 @@ try {
                     <div class="col-12 col-md-4">
                         <div class="project-card">
                             <div class="project-item project-tall">
-                                <img src="/WEB_SAJTOVI_PHP/felix_php/uploads/<?php echo htmlspecialchars($project['image']); ?>" 
+                                <img src="/uploads/<?php echo htmlspecialchars($project['image']); ?>" 
                                     alt="<?php echo htmlspecialchars($project['title']); ?>"
                                     class="project-image"
-                                    onerror="this.src='/WEB_SAJTOVI_PHP/felix_php/images/indexslika1.jpg'">
+                                    onerror="this.src='/images/indexslika1.jpg'">
                                 <div class="project-overlay">
                                     <h3 class="project-name"><?php echo htmlspecialchars($project['title']); ?></h3>
                                 </div>
