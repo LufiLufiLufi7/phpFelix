@@ -47,7 +47,11 @@ $navLinks = $stmt->fetchAll();
                         <ul class="navbar-nav text-uppercase ms-auto text-white">
                             <?php foreach ($navLinks as $link): ?>
                                 <li class="nav-item beliOkvir">
-                                    <a href="<?php echo $link['url']; ?>" class="nav-link text-white">
+                                    <a href="<?php
+                                            $url = trim((string) $link['url']);
+                                            $url = preg_replace('~^/WEB_SAJTOVI_PHP/felix_php(?=/|$)~i', '', $url);
+                                            echo htmlspecialchars($url ?: '/', ENT_QUOTES, 'UTF-8');
+                                        ?>" class="nav-link text-white">
                                         <?php echo $link['text']; ?>
                                     </a>
                                 </li>
