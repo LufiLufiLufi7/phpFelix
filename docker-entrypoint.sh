@@ -2,7 +2,7 @@
 set -eu
 
 # Configuration is generated at container startup, never committed with secrets.
-umask 027
+umask 022
 cat > /var/www/html/includes/config.php <<'PHP'
 <?php
 define('DB_HOST', getenv('DB_HOST') ?: '');
@@ -18,5 +18,7 @@ define('MAIL_FROM_NAME', 'Felix Construction');
 
 define('APP_URL', rtrim(getenv('APP_URL') ?: '', '/'));
 PHP
+
+chmod 644 /var/www/html/includes/config.php
 
 exec apache2-foreground
