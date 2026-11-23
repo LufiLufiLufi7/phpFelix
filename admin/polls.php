@@ -120,6 +120,7 @@ $polls = $db->query("SELECT * FROM polls ORDER BY created_at DESC")->fetchAll();
 
         <!-- Main content -->
         <main class="col-md-10 p-4">
+<?php if ($isDemoAdmin): ?><div class="alert alert-warning">Admin Assistant — read-only portfolio demo. User and message data are fictional.</div><?php endif; ?>
             <h2 class="mb-4 text-dark">Manage Polls</h2>
 
             <?php if ($success): ?>
@@ -140,6 +141,7 @@ $polls = $db->query("SELECT * FROM polls ORDER BY created_at DESC")->fetchAll();
                 </div>
                 <div class="card-body">
                     <form method="POST">
+<fieldset <?php echo $isDemoAdmin ? 'disabled' : ''; ?>>
                         <input type="hidden" name="add_poll" value="1">
                         <div class="mb-3">
                             <label class="form-label text-dark">Question *</label>
@@ -158,7 +160,7 @@ $polls = $db->query("SELECT * FROM polls ORDER BY created_at DESC")->fetchAll();
                             <label class="form-check-label text-dark" for="active">Active</label>
                         </div>
                         <button type="submit" class="btn btn-warning">Add Poll</button>
-                    </form>
+                    </fieldset></form>
                 </div>
             </div>
 
@@ -182,14 +184,14 @@ $polls = $db->query("SELECT * FROM polls ORDER BY created_at DESC")->fetchAll();
                         <?php echo $poll['active'] ? 'bg-success' : 'bg-secondary'; ?> text-white">
                         <strong><?php echo htmlspecialchars($poll['question']); ?></strong>
                         <div class="d-flex gap-2">
-                            <a href="?toggle=<?php echo $poll['id']; ?>" class="btn btn-light btn-sm">
+                            <?php if (!$isDemoAdmin): ?><a href="?toggle=<?php echo $poll['id']; ?>" class="btn btn-light btn-sm">
                                 <?php echo $poll['active'] ? 'Deactivate' : 'Activate'; ?>
-                            </a>
-                            <a href="?delete=<?php echo $poll['id']; ?>"
+                            </a><?php endif; ?>
+                            <?php if (!$isDemoAdmin): ?><a href="?delete=<?php echo $poll['id']; ?>"
                                 class="btn btn-danger btn-sm"
                                 onclick="return confirm('Delete this poll?')">
                                 <i class="fas fa-trash"></i>
-                            </a>
+                            </a><?php endif; ?>
                         </div>
                     </div>
                     <div class="card-body">
