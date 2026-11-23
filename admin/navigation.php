@@ -69,14 +69,14 @@ if (isset($_GET['edit'])) {
 <body class="bg-light">
 
 <nav class="navbar navbar-dark bg-dark px-4">
-    <a class="navbar-brand" href="/WEB_SAJTOVI_PHP/felix_php/admin/index.php">
+    <a class="navbar-brand" href="/admin/index.php">
         <i class="fas fa-tools"></i> Felix Admin
     </a>
     <div class="d-flex gap-3">
-        <a href="/WEB_SAJTOVI_PHP/felix_php/index.php" class="btn btn-outline-light btn-sm">
+        <a href="/index.php" class="btn btn-outline-light btn-sm">
             <i class="fas fa-home"></i> View Site
         </a>
-        <a href="/WEB_SAJTOVI_PHP/felix_php/logout.php" class="btn btn-danger btn-sm">
+        <a href="/logout.php" class="btn btn-danger btn-sm">
             <i class="fas fa-sign-out-alt"></i> Logout
         </a>
     </div>
@@ -88,27 +88,27 @@ if (isset($_GET['edit'])) {
         <nav class="col-md-2 bg-dark min-vh-100 p-3">
             <ul class="nav flex-column">
                 <li class="nav-item mb-2">
-                    <a href="/WEB_SAJTOVI_PHP/felix_php/admin/index.php" class="nav-link text-white">
+                    <a href="/admin/index.php" class="nav-link text-white">
                         <i class="fas fa-dashboard"></i> Dashboard
                     </a>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="/WEB_SAJTOVI_PHP/felix_php/admin/projects.php" class="nav-link text-white">
+                    <a href="/admin/projects.php" class="nav-link text-white">
                         <i class="fas fa-building"></i> Projects
                     </a>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="/WEB_SAJTOVI_PHP/felix_php/admin/navigation.php" class="nav-link text-warning">
+                    <a href="/admin/navigation.php" class="nav-link text-warning">
                         <i class="fas fa-bars"></i> Navigation
                     </a>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="/WEB_SAJTOVI_PHP/felix_php/admin/messages.php" class="nav-link text-white">
+                    <a href="/admin/messages.php" class="nav-link text-white">
                         <i class="fas fa-envelope"></i> Messages
                     </a>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="/WEB_SAJTOVI_PHP/felix_php/admin/polls.php" class="nav-link text-white">
+                    <a href="/admin/polls.php" class="nav-link text-white">
                         <i class="fas fa-poll"></i> Polls
                     </a>
                 </li>
@@ -169,7 +169,7 @@ if (isset($_GET['edit'])) {
                             <?php echo $editLink ? 'Update Link' : 'Add Link'; ?>
                         </button>
                         <?php if ($editLink): ?>
-                            <a href="/WEB_SAJTOVI_PHP/felix_php/admin/navigation.php" class="btn btn-secondary mt-3">Cancel</a>
+                            <a href="/admin/navigation.php" class="btn btn-secondary mt-3">Cancel</a>
                         <?php endif; ?>
                     </form>
                 </div>
