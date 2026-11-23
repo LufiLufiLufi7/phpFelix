@@ -112,6 +112,11 @@ if (isset($_GET['edit'])) {
                         <i class="fas fa-poll"></i> Polls
                     </a>
                 </li>
+                <li class="nav-item mb-2">
+                    <a href="/admin/users.php" class="nav-link text-white">
+                        <i class="fas fa-users"></i> Users
+                    </a>
+                </li>
             </ul>
         </nav>
 
