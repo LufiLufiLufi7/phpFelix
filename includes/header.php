@@ -60,7 +60,7 @@ $navLinks = $stmt->fetchAll();
                                 </li>
                             <?php endforeach; ?>
                             <?php if (isset($_SESSION['user_id'])): ?>
-                                <?php if ($_SESSION['user_role'] === 'admin'): ?>
+                                <?php if (in_array($_SESSION['user_role'], ['admin', 'adminAsistent'], true)): ?>
                                     <li class="nav-item beliOkvir">
                                         <a href="/admin/index.php" class="nav-link text-white">Admin</a>
                                     </li>
