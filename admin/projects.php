@@ -145,6 +145,7 @@ if (isset($_GET['edit'])) {
 
         <!-- Main content -->
         <main class="col-md-10 p-4">
+<?php if ($isDemoAdmin): ?><div class="alert alert-warning">Admin Assistant — read-only portfolio demo. User and message data are fictional.</div><?php endif; ?>
             <h2 class="mb-4 text-dark">Manage Projects</h2>
 
             <?php if ($success): ?>
@@ -165,6 +166,7 @@ if (isset($_GET['edit'])) {
                 </div>
                 <div class="card-body">
                     <form method="POST" enctype="multipart/form-data">
+<fieldset <?php echo $isDemoAdmin ? 'disabled' : ''; ?>>
                         <?php if ($editProject): ?>
                             <input type="hidden" name="id" value="<?php echo $editProject['id']; ?>">
                             <input type="hidden" name="existing_image" value="<?php echo $editProject['image']; ?>">
@@ -221,7 +223,7 @@ if (isset($_GET['edit'])) {
                         <?php if ($editProject): ?>
                             <a href="/admin/projects.php" class="btn btn-secondary mt-3">Cancel</a>
                         <?php endif; ?>
-                    </form>
+                    </fieldset></form>
                 </div>
             </div>
 
@@ -261,14 +263,14 @@ if (isset($_GET['edit'])) {
                                         <?php endif; ?>
                                     </td>
                                     <td>
-                                        <a href="?edit=<?php echo $project['id']; ?>" class="btn btn-warning btn-sm">
+                                        <?php if (!$isDemoAdmin): ?><a href="?edit=<?php echo $project['id']; ?>" class="btn btn-warning btn-sm">
                                             <i class="fas fa-edit"></i>
-                                        </a>
-                                        <a href="?delete=<?php echo $project['id']; ?>"
+                                        </a><?php endif; ?>
+                                        <?php if (!$isDemoAdmin): ?><a href="?delete=<?php echo $project['id']; ?>"
                                             class="btn btn-danger btn-sm"
                                             onclick="return confirm('Are you sure?')">
                                             <i class="fas fa-trash"></i>
-                                        </a>
+                                        </a><?php endif; ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
