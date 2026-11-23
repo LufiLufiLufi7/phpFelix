@@ -17,7 +17,9 @@ if (isset($_GET['delete'])) {
 }
 
 // Učitaj sve poruke
-$messages = $db->query("SELECT * FROM contact_messages ORDER BY created_at DESC")->fetchAll();
+$messages = $isDemoAdmin ? [
+    ['id'=>1,'name'=>'Demo Customer','email'=>'customer@example.com','phone'=>'-','service'=>'Renovation','project_date'=>'2026-12-01','message'=>'Hello! I would like a quote for an apartment renovation. This is a sample message.','created_at'=>'2026-11-01 10:00:00']
+] : $db->query("SELECT * FROM contact_messages ORDER BY created_at DESC")->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -85,6 +87,7 @@ $messages = $db->query("SELECT * FROM contact_messages ORDER BY created_at DESC"
 
         <!-- Main content -->
         <main class="col-md-10 p-4">
+<?php if ($isDemoAdmin): ?><div class="alert alert-warning">Admin Assistant — read-only portfolio demo. User and message data are fictional.</div><?php endif; ?>
             <h2 class="mb-4 text-dark">Contact Messages</h2>
 
             <?php if ($success): ?>
@@ -124,11 +127,11 @@ $messages = $db->query("SELECT * FROM contact_messages ORDER BY created_at DESC"
                                         <td class="text-dark"><?php echo date('d.m.Y H:i', strtotime($msg['created_at'])); ?></td>
                                         <td>
                                             <button type="button" class="btn btn-warning btn-sm me-1" data-bs-toggle="collapse" data-bs-target="#fullMessage<?php echo (int)$msg['id']; ?>" aria-expanded="false" aria-controls="fullMessage<?php echo (int)$msg['id']; ?>" title="Show or hide full message" aria-label="Show or hide full message"><i class="fas fa-eye"></i></button>
-                                            <a href="?delete=<?php echo $msg['id']; ?>"
+                                            <?php if (!$isDemoAdmin): ?><a href="?delete=<?php echo $msg['id']; ?>"
                                                 class="btn btn-danger btn-sm"
                                                 onclick="return confirm('Delete this message?')">
                                                 <i class="fas fa-trash"></i>
-                                            </a>
+                                            </a><?php endif; ?>
                                         </td>
                                     </tr>
                                     <tr><td colspan="8" class="p-0 border-0"><div class="collapse" id="fullMessage<?php echo (int)$msg['id']; ?>"><div class="p-3 bg-white border-bottom text-dark"><strong>Full message:</strong><div class="mt-2" style="white-space: pre-wrap; overflow-wrap: anywhere;"><?php echo htmlspecialchars($msg['message'], ENT_QUOTES, 'UTF-8'); ?></div></div></div></td></tr>
