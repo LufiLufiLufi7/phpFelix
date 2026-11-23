@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'includes/header.php';
+require_once 'includes/project_images.php';
 
 function formatCategory($category) {
     $categories = [
@@ -89,7 +90,7 @@ try {
                     <div class="col-12 col-md-4">
                         <div class="project-card">
                             <div class="project-item project-tall">
-                                <img src="/uploads/<?php echo htmlspecialchars($project['image']); ?>" 
+                                <img src="<?php echo htmlspecialchars(projectImageUrl($project['image']), ENT_QUOTES, 'UTF-8'); ?>" 
                                     alt="<?php echo htmlspecialchars($project['title']); ?>"
                                     class="project-image"
                                     onerror="this.src='/images/indexslika1.jpg'">
