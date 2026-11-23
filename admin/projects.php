@@ -89,19 +89,19 @@ if (isset($_GET['edit'])) {
     <title>Projects - Admin Panel</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/WEB_SAJTOVI_PHP/felix_php/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="bg-light">
 
 <nav class="navbar navbar-dark bg-dark px-4">
-    <a class="navbar-brand" href="/WEB_SAJTOVI_PHP/felix_php/admin/index.php">
+    <a class="navbar-brand" href="/admin/index.php">
         <i class="fas fa-tools"></i> Felix Admin
     </a>
     <div class="d-flex gap-3">
-        <a href="/WEB_SAJTOVI_PHP/felix_php/index.php" class="btn btn-outline-light btn-sm">
+        <a href="/index.php" class="btn btn-outline-light btn-sm">
             <i class="fas fa-home"></i> View Site
         </a>
-        <a href="/WEB_SAJTOVI_PHP/felix_php/logout.php" class="btn btn-danger btn-sm">
+        <a href="/logout.php" class="btn btn-danger btn-sm">
             <i class="fas fa-sign-out-alt"></i> Logout
         </a>
     </div>
@@ -113,27 +113,27 @@ if (isset($_GET['edit'])) {
         <nav class="col-md-2 bg-dark min-vh-100 p-3">
             <ul class="nav flex-column">
                 <li class="nav-item mb-2">
-                    <a href="/WEB_SAJTOVI_PHP/felix_php/admin/index.php" class="nav-link text-white">
+                    <a href="/admin/index.php" class="nav-link text-white">
                         <i class="fas fa-dashboard"></i> Dashboard
                     </a>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="/WEB_SAJTOVI_PHP/felix_php/admin/projects.php" class="nav-link text-warning">
+                    <a href="/admin/projects.php" class="nav-link text-warning">
                         <i class="fas fa-building"></i> Projects
                     </a>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="/WEB_SAJTOVI_PHP/felix_php/admin/navigation.php" class="nav-link text-white">
+                    <a href="/admin/navigation.php" class="nav-link text-white">
                         <i class="fas fa-bars"></i> Navigation
                     </a>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="/WEB_SAJTOVI_PHP/felix_php/admin/messages.php" class="nav-link text-white">
+                    <a href="/admin/messages.php" class="nav-link text-white">
                         <i class="fas fa-envelope"></i> Messages
                     </a>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="/WEB_SAJTOVI_PHP/felix_php/admin/polls.php" class="nav-link text-white">
+                    <a href="/admin/polls.php" class="nav-link text-white">
                         <i class="fas fa-poll"></i> Polls
                     </a>
                 </li>
@@ -199,7 +199,7 @@ if (isset($_GET['edit'])) {
                                 <label class="form-label text-dark">Image</label>
                                 <input type="file" name="image" class="form-control" accept="image/*">
                                 <?php if ($editProject && $editProject['image']): ?>
-                                    <img src="/WEB_SAJTOVI_PHP/felix_php/uploads/<?php echo $editProject['image']; ?>"
+                                    <img src="/uploads/<?php echo $editProject['image']; ?>"
                                         class="mt-2 img-thumbnail" style="max-height:80px">
                                 <?php endif; ?>
                             </div>
@@ -216,7 +216,7 @@ if (isset($_GET['edit'])) {
                             <?php echo $editProject ? 'Update Project' : 'Add Project'; ?>
                         </button>
                         <?php if ($editProject): ?>
-                            <a href="/WEB_SAJTOVI_PHP/felix_php/admin/projects.php" class="btn btn-secondary mt-3">Cancel</a>
+                            <a href="/admin/projects.php" class="btn btn-secondary mt-3">Cancel</a>
                         <?php endif; ?>
                     </form>
                 </div>
@@ -243,9 +243,9 @@ if (isset($_GET['edit'])) {
                             <?php foreach ($projects as $project): ?>
                                 <tr>
                                     <td>
-                                        <img src="/WEB_SAJTOVI_PHP/felix_php/uploads/<?php echo $project['image']; ?>"
+                                        <img src="/uploads/<?php echo $project['image']; ?>"
                                             class="img-thumbnail" style="max-height:50px"
-                                            onerror="this.src='/WEB_SAJTOVI_PHP/felix_php/images/indexslika1.jpg'">
+                                            onerror="this.src='/images/indexslika1.jpg'">
                                     </td>
                                     <td class="text-dark"><?php echo htmlspecialchars($project['title']); ?></td>
                                     <td class="text-dark"><?php echo htmlspecialchars($project['category']); ?></td>
